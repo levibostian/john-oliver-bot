@@ -2,9 +2,7 @@
 
 var Twitter = require('twitter')
 
-var responses = require('responses').responses
-
-if (!responses) { throw new Error('You forgot to create a responses file.') }
+const responses = ["if you liked John Oliver's video, check out this shirt for charity https://teespring.com/new-this-is-not-normal", "I love his video! Seen this shirt inspired by it for charity? https://teespring.com/new-this-is-not-normal", "I love this video! Check out this shirt inspired by it for charity. https://teespring.com/new-this-is-not-normal", "John's video is so good. Have you seen this shirt for charity from the video? https://teespring.com/new-this-is-not-normal"]
 
 const consumerKey: ?string = process.env.TWITTER_REPLY_BOT_CONSUMER_KEY
 const consumerSecret: ?string = process.env.TWITTER_REPLY_BOT_CONSUMER_SECRET
@@ -50,6 +48,6 @@ client.stream('statuses/filter', {track: tweetStreamTrack, language: 'en'}, func
     })
 
     stream.on('error', function(error) {
-        console.log('error', 'ERROR' + error)
+        console.log('error', 'ERROR ' + error)
     })
 })

@@ -1,0 +1,1 @@
+var responses = require('./responses')
