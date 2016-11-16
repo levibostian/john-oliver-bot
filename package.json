@@ -5,6 +5,7 @@
   "main": "dist/bot.js",
   "scripts": {
     "start": "babel src --out-dir dist --copy-files; node dist/bot.js",
+    "heroku-run": "node dist/bot.js",
     "debug": "node-debug dist/bot.js",
     "startdebug": "babel src --out-dir dist --copy-files; node --debug dist/bot.js"
   },
