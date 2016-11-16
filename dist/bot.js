@@ -2,7 +2,7 @@
 
 var Twitter = require('twitter');
 
-var responses = ["if you liked John Oliver's video, check out this shirt for charity https://teespring.com/new-this-is-not-normal", "I love his video! Seen this shirt inspired by it for charity? https://teespring.com/new-this-is-not-normal", "I love this video! Check out this shirt inspired by it for charity. https://teespring.com/new-this-is-not-normal", "John's video is so good. Have you seen this shirt for charity from the video? https://teespring.com/new-this-is-not-normal"];
+var responses = ["if you liked John Oliver's video, check out this shirt for charity https://teespring.com/new-this-is-not-normal", "I love John Oliver's video! Seen this shirt inspired by it for charity? https://teespring.com/new-this-is-not-normal"];
 
 var consumerKey = process.env.TWITTER_REPLY_BOT_CONSUMER_KEY;
 var consumerSecret = process.env.TWITTER_REPLY_BOT_CONSUMER_SECRET;
@@ -23,8 +23,12 @@ var client = new Twitter({
 });
 
 function sendReplyTweet(tweet, message) {
+    if (tweet.user.screen_name == "levibostian") {
+        return;
+    }
+
     var replyTweet = "@" + tweet.user.screen_name + " " + message;
-    var reply = { status: replyTweet, in_reply_to_status_id: tweet.id };
+    var reply = { status: replyTweet, in_reply_to_status_id: tweet.id_str };
 
     if (process.env.NODE_ENV === "production") {
         client.post('statuses/update', reply, function (error, tweet, response) {});
