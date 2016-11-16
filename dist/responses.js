@@ -1,0 +1,3 @@
+"use strict";
+
+exports.responses = ["if you liked John Oliver's video, check out this shirt for charity https://teespring.com/new-this-is-not-normal", "I love his video! Seen this shirt inspired by it for charity? https://teespring.com/new-this-is-not-normal", "I love this video! Check out this shirt inspired by it for charity. https://teespring.com/new-this-is-not-normal", "John's video is so good. Have you seen this shirt for charity from the video? https://teespring.com/new-this-is-not-normal"];
