@@ -21,8 +21,12 @@ var client = new Twitter({
 })
 
 function sendReplyTweet(tweet: Object, message: string) {
+    if (tweet.user.screen_name == "levibostian") {
+        return;
+    }
+    
     var replyTweet: string = "@" + tweet.user.screen_name + " " + message;
-    var reply: Object = {status: replyTweet, in_reply_to_status_id: tweet.id};
+    var reply: Object = {status: replyTweet, in_reply_to_status_id: tweet.id_str};
 
     if (process.env.NODE_ENV === "production") {
         client.post('statuses/update', reply,  function(error, tweet, response) {
