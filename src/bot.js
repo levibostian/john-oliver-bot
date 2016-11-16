@@ -2,7 +2,7 @@
 
 var Twitter = require('twitter')
 
-const responses = ["if you liked John Oliver's video, check out this shirt for charity https://teespring.com/new-this-is-not-normal", "I love his video! Seen this shirt inspired by it for charity? https://teespring.com/new-this-is-not-normal", "I love this video! Check out this shirt inspired by it for charity. https://teespring.com/new-this-is-not-normal", "John's video is so good. Have you seen this shirt for charity from the video? https://teespring.com/new-this-is-not-normal"]
+const responses = ["if you liked John Oliver's video, check out this shirt for charity https://teespring.com/new-this-is-not-normal", "I love John Oliver's video! Seen this shirt inspired by it for charity? https://teespring.com/new-this-is-not-normal"]
 
 const consumerKey: ?string = process.env.TWITTER_REPLY_BOT_CONSUMER_KEY
 const consumerSecret: ?string = process.env.TWITTER_REPLY_BOT_CONSUMER_SECRET
@@ -24,7 +24,7 @@ function sendReplyTweet(tweet: Object, message: string) {
     if (tweet.user.screen_name == "levibostian") {
         return;
     }
-    
+
     var replyTweet: string = "@" + tweet.user.screen_name + " " + message;
     var reply: Object = {status: replyTweet, in_reply_to_status_id: tweet.id_str};
 
